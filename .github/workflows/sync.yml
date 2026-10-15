@@ -15,14 +15,6 @@ jobs:
     if: ${{ github.event.repository.fork }}
 
     steps:
-      - name: Check token exists
-        run: |
-          if [ -z "${{ secrets.SYNC_TOKEN }}" ]; then
-            echo "SYNC_TOKEN is EMPTY — 仓库 Secret 没配或名字不对"
-            exit 1
-          else
-            echo "SYNC_TOKEN is set"
-          fi
       - name: Checkout target repo
         uses: actions/checkout@v6
         with:
